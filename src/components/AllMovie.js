@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import movieAPI from "../apis/movieApis";
 import ListMovie from "./Layout/ListMovie/ListMovie";
+import { motion } from "framer-motion";
+import { fadeAnimate, transion } from "../animation/ainmate";
 
 function AllMovie(props) {
   const location = useLocation();
@@ -20,6 +22,7 @@ function AllMovie(props) {
       setData({});
       setPage(1);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query.cate, query.country, query.kw]);
 
   const getmovie = (newpage = page) => {
@@ -83,54 +86,62 @@ function AllMovie(props) {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "6%",
-      }}
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={fadeAnimate}
+      transition={transion}
     >
-      <ListMovie title={title} listItem={data.listMovie} />
       <div
-        className="loadding"
         style={{
-          textAlign: "center",
-          padding: "15px",
+          marginTop: "6%",
         }}
       >
-        {page !== 1 && (
-          <button
-            onClick={loadpri}
-            style={{
-              background: "#febb00",
-              border: "none",
-              padding: "10px 15px",
-              borderRadius: "5px",
-              color: "black",
-              boxShadow: "1px 1px 1px gray",
-              cursor: "pointer",
-              marginRight: "5px",
-            }}
-          >
-            Previous
-          </button>
-        )}
-        {page !== maxpage && (
-          <button
-            onClick={loadMore}
-            style={{
-              background: "#febb00",
-              border: "none",
-              padding: "10px 15px",
-              borderRadius: "5px",
-              color: "black",
-              boxShadow: "1px 1px 1px gray",
-              cursor: "pointer",
-            }}
-          >
-            Next
-          </button>
-        )}
+        <ListMovie title={title} listItem={data.listMovie} />
+        <div
+          className="loadding"
+          style={{
+            textAlign: "center",
+            padding: "15px",
+          }}
+        >
+          {page !== 1 && (
+            <button
+              onClick={loadpri}
+              style={{
+                background: "#febb00",
+                border: "none",
+                padding: "10px 15px",
+                borderRadius: "5px",
+                color: "black",
+                boxShadow: "1px 1px 1px gray",
+                cursor: "pointer",
+                marginRight: "5px",
+              }}
+            >
+              Previous
+            </button>
+          )}
+          {page !== maxpage && (
+            <button
+              onClick={loadMore}
+              style={{
+                background: "#febb00",
+                border: "none",
+                padding: "10px 15px",
+                borderRadius: "5px",
+                color: "black",
+                boxShadow: "1px 1px 1px gray",
+                cursor: "pointer",
+              }}
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

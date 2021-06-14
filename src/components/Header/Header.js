@@ -119,6 +119,7 @@ function Header() {
     });
 
     getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loginFormOrSignin = async (event) => {

@@ -3,6 +3,8 @@ import movieAPI from "../apis/movieApis";
 import Carosel from "./Layout/Carosel/Carosel";
 import Cinema from "./Layout/Cinema/Cinema";
 import ListMovie from "./Layout/ListMovie/ListMovie";
+import { motion } from "framer-motion";
+import { fadeAnimate, transion } from "../animation/ainmate";
 
 function Home(props) {
   const [listPhimHot, SetListPhimHot] = useState([]);
@@ -53,12 +55,18 @@ function Home(props) {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={fadeAnimate}
+      transition={transion}
+    >
       <Carosel list={listPhimHot} listSize={listPhimHot.length} />
       <Cinema list={listCinema} />
       <ListMovie title="Phim Lẻ Mới Cập Nhật" listItem={listPhimLe} />
       <ListMovie title="Phim Hoạt Hình Mới Cập Nhập" listItem={listPhimBo} />
-    </div>
+    </motion.div>
   );
 }
 

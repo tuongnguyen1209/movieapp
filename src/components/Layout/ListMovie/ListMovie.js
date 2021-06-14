@@ -11,7 +11,7 @@ function ListMovie(props) {
         {props.listItem &&
           props.listItem.map((value, index) => (
             <div className="movie-item" key={index}>
-              <Link to={`./../phim/${value._id}`} title={value.name}>
+              <Link to={`./../phim/${value._id}`} title={value.title}>
                 <div className="image">
                   <img src={value.img} alt="" className="card-movie-img" />
                   <div className="icon-play">

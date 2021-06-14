@@ -5,7 +5,6 @@ import { ListMovie, WrapContent, WrapInfo, WrapMovie } from "./Style";
 function Movie(props) {
   const { datas, listRelatedMovies } = props;
 
-  console.log(datas.listChaps);
   return (
     <WrapContent>
       <WrapMovie>
@@ -32,7 +31,10 @@ function Movie(props) {
               Quốc Gia:{" "}
               {datas.listCountries &&
                 datas.listCountries.map((element, index) => (
-                  <Link to={element.link} key={index}>
+                  <Link
+                    to={`./../../allmovie?country=${element.country}`}
+                    key={index}
+                  >
                     {element.country},
                   </Link>
                 ))}
@@ -41,16 +43,17 @@ function Movie(props) {
               Diễn Viên:{" "}
               {datas.listactors &&
                 datas.listactors.map((element, index) => (
-                  <Link to={element.link} key={index}>
-                    {element.name},
-                  </Link>
+                  <Link to="">{element.name},</Link>
                 ))}
             </p>
             <p>
               Thể Loại:{" "}
               {datas.listCategories &&
                 datas.listCategories.map((element, index) => (
-                  <Link to={element.link} key={index}>
+                  <Link
+                    to={`./../../allmovie?cate=${element.nameCate}`}
+                    key={index}
+                  >
                     {element.nameCate},
                   </Link>
                 ))}

@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 
 const url1 = "https://my-api-movie.herokuapp.com/apis/v1/";
-const url2 = "http://localhost:7300/apis/v2/";
+// const url2 = "http://localhost:7300/apis/v2/";
 const urlHeruku = "https://my-api-movie.herokuapp.com/apis/v2/";
 const movieAPI = {
   getNav: () => {

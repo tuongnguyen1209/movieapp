@@ -57,6 +57,7 @@ const UserContextProvider = ({ children }) => {
       };
     }
   };
+
   // context data
   const dataUser = {
     user,

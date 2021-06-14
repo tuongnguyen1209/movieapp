@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import movieAPI from "../apis/movieApis";
 import Movie from "./Layout/Movie/Movie";
+import { motion } from "framer-motion";
+import { fadeAnimate, transion } from "../animation/ainmate";
 
 function Product() {
   const { _id } = useParams();
@@ -33,7 +35,7 @@ function Product() {
       "listCategories[nameCate]": cate,
       fields: "title,titleEnglish,img,time",
     };
-    console.log(cate, params);
+
     if (cate !== "") {
       movieAPI.getAllMovie(params).then((result) => {
         // console.log(result);
@@ -42,9 +44,15 @@ function Product() {
     }
   }, [datas]);
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={fadeAnimate}
+      transition={transion}
+    >
       <Movie datas={datas} listRelatedMovies={listMovie} />
-    </div>
+    </motion.div>
   );
 }
 
