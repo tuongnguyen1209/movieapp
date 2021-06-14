@@ -11,7 +11,7 @@ function ListMovie(props) {
         {props.listItem &&
           props.listItem.map((value, index) => (
             <div className="movie-item" key={index}>
-              <Link to={`phim${value.link}`} title={value.name}>
+              <Link to={`./../phim/${value._id}`} title={value.name}>
                 <div className="image">
                   <img src={value.img} alt="" className="card-movie-img" />
                   <div className="icon-play">
@@ -19,18 +19,12 @@ function ListMovie(props) {
                   </div>
                 </div>
                 <div className="card-movie-info">
-                  <p className="card-movie-name">{value.name}</p>
-                  <p>{value.nameen}</p>
+                  <p className="card-movie-name">{value.title}</p>
+                  <p>{value.titleEnglish}</p>
                   <div className="func">
                     <div className="views">
-                      {value.views && (
-                        <>
-                          <span>
-                            <i className="fas fa-eye"></i>
-                          </span>
-                          <span>{value.views}</span>
-                        </>
-                      )}
+                      <span>{value.time.replace(value.year, "")}</span>
+                      <span>{value.year}</span>
                     </div>
                   </div>
                 </div>

@@ -5,18 +5,50 @@ import Cinema from "./Layout/Cinema/Cinema";
 import ListMovie from "./Layout/ListMovie/ListMovie";
 
 function Home(props) {
-  const [listPhimLe, SetListPhimLe] = useState([]);
-  const [listPhimBo, SetListPhimBo] = useState([]);
   const [listPhimHot, SetListPhimHot] = useState([]);
+  const [listPhimLe, SetListPhimLe] = useState([]);
   const [listCinema, SetListCinema] = useState([]);
+  const [listPhimBo, SetListPhimBo] = useState([]);
 
   useEffect(() => {
-    movieAPI.getHome().then((result) => {
-      let newData = result.data;
-      SetListPhimLe(newData.listPhimLe);
-      SetListPhimBo(newData.listPhimBo);
-      SetListCinema(newData.ListCinema);
-      SetListPhimHot(newData.ListHot);
+    // get phim hot
+    const paramsPhimHot = {
+      limit: 7,
+      fields: "title,titleEnglish,img,time,listactors",
+    };
+    movieAPI.getAllMovie(paramsPhimHot).then((result) => {
+      // console.log(result);
+      SetListPhimHot(result.data.listMovie);
+    });
+
+    //get phim chieu rap
+    const paramCinema = {
+      limit: 10,
+      fields: "title,img",
+      "listCategories[nameCate]": "Phim Chiếu Rạp",
+    };
+    movieAPI.getAllMovie(paramCinema).then((result) => {
+      // console.log(result);
+      SetListCinema(result.data.listMovie);
+    });
+
+    //lay phim le moi
+    const paramPhimLe = {
+      limit: 10,
+      fields: "title,titleEnglish,img,time,year",
+    };
+    movieAPI.getAllMovie(paramPhimLe).then((result) => {
+      SetListPhimLe(result.data.listMovie);
+    });
+
+    //lay phim hoat hinh
+    const paramHoatHinh = {
+      limit: 10,
+      fields: "title,titleEnglish,img,time,year",
+      "listCategories[nameCate]": "Phim Hoạt hình",
+    };
+    movieAPI.getAllMovie(paramHoatHinh).then((result) => {
+      SetListPhimBo(result.data.listMovie);
     });
   }, []);
 
@@ -25,7 +57,7 @@ function Home(props) {
       <Carosel list={listPhimHot} listSize={listPhimHot.length} />
       <Cinema list={listCinema} />
       <ListMovie title="Phim Lẻ Mới Cập Nhật" listItem={listPhimLe} />
-      <ListMovie title="Phim Bộ Mới Cập Nhập" listItem={listPhimBo} />
+      <ListMovie title="Phim Hoạt Hình Mới Cập Nhập" listItem={listPhimBo} />
     </div>
   );
 }

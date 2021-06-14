@@ -37,15 +37,20 @@ function Carosel(props) {
       <div className="list-carosel">
         {props.list.map((value, index) => (
           <div className="carosel-item" key={index}>
-            <Link to={`phim${value.link}`}>
+            <Link to={`phim/${value._id}`}>
               <div className="banner">
                 <img src={value.img} alt="Poster" />
               </div>
               <div className="banner-info">
-                <h3>{value.name} </h3>
-                <p> {value.rank} </p>
-                <p>Lượt Xem {value.views} </p>
-                <p> {value.views} </p>
+                <h1>{value.title} </h1>
+                <p> {value.titleEnglish} </p>
+                <p>{value.time} </p>
+                <p className="actor">
+                  Diễn Viên: {value.listactors.map((el) => `${el.name}, `)}{" "}
+                </p>
+                <p>
+                  <button>Xem Chi Tiết</button>
+                </p>
               </div>
             </Link>
           </div>

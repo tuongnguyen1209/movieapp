@@ -1,18 +1,22 @@
 import axiosClient from "./axiosClient";
 
-const url = "http://localhost:7300/apis/v1/";
+const url1 = "https://my-api-movie.herokuapp.com/apis/v1/";
+const url2 = "http://localhost:7300/apis/v2/";
 const movieAPI = {
-  getHome: () => {
-    return axiosClient.get(`${url}home`);
-  },
   getNav: () => {
-    return axiosClient.get(`${url}allnav`);
+    return axiosClient.get(`${url1}allnav`);
   },
-  getMovie: (name) => {
-    return axiosClient.get(`${url}movie/${name}`);
+  getAllMovie: (params) => {
+    return axiosClient.get(`${url2}movie`, { params });
   },
-  getAllMovie: (link1, link2) => {
-    return axiosClient.get(`${url}all/${link1}/${link2}`);
+  getMovie: (_id) => {
+    return axiosClient.get(`${url2}movie/${_id}`);
+  },
+  getCountry: () => {
+    return axiosClient.get(`${url2}country`);
+  },
+  getSearch: (params) => {
+    return axiosClient.get(`${url2}search`, { params });
   },
 };
 export default movieAPI;

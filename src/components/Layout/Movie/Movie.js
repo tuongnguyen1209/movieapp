@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { ListMovie, WrapContent, WrapInfo, WrapMovie } from "./Style";
 
 function Movie(props) {
-  const { datas } = props;
+  const { datas, listRelatedMovies } = props;
 
+  console.log(datas.listChaps);
   return (
     <WrapContent>
       <WrapMovie>
         <div className="wrapVideo">
-          <video src="" controls autoPlay></video>
+          <video
+            src={datas.listChaps ? datas.listChaps[0].link : ""}
+            controls
+            autoPlay
+          ></video>
         </div>
         <WrapInfo>
           <h3>{datas.title}</h3>
@@ -22,7 +27,7 @@ function Movie(props) {
           </div>
           <div className="info-video">
             <p>Year: {datas.year}</p>
-            <p>Đạo Diễn: {datas.daodien}</p>
+            <p>Đạo Diễn: {datas.directors}</p>
             <p>
               Quốc Gia:{" "}
               {datas.listCountries &&
@@ -58,23 +63,29 @@ function Movie(props) {
 
             <p
               className="noidung"
-              dangerouslySetInnerHTML={{ __html: `${datas.noidung}` }}
+              dangerouslySetInnerHTML={{ __html: `${datas.contents}` }}
             ></p>
           </div>
         </WrapInfo>
       </WrapMovie>
       <ListMovie>
-        {datas.listRelatedMovies &&
-          datas.listRelatedMovies.map((element, index) => (
-            <Link to={`../phim${element.link}`} key={index}>
+        {listRelatedMovies &&
+          listRelatedMovies.map((element, index) => (
+            <Link
+              to={`../phim/${element._id}`}
+              key={index}
+              style={{
+                display: element._id === datas._id ? "none" : "",
+              }}
+            >
               <div className="movieItem">
                 <div className="wrapImage">
                   <img src={element.img} alt="Banner" />
                 </div>
                 <div className="wrapInfo">
-                  <h3>{element.name}</h3>
-                  <h5>{element.nameen}</h5>
-                  <p>{element.status}</p>
+                  <h3>{element.title}</h3>
+                  <h5>{element.titleEnglish}</h5>
+                  <p>{element.time}</p>
                 </div>
               </div>
             </Link>

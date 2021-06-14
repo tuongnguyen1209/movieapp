@@ -23,35 +23,59 @@ export const MainCarosel = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
   .banner > img {
-    width: 100%;
+    /* width: 50%; */
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
   }
   .banner-info {
     position: absolute;
 
     z-index: 5;
     color: white;
-    width: 100%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     padding: 30px;
-  }
-  .banner-info h3 {
-    font-family: "Dosis", sans-serif;
-    font-size: 3vw;
-    font-weight: 500;
+    h1 {
+      font-family: "Dosis", sans-serif;
+      font-size: 3vw;
+      font-weight: 500;
+      color: #ff7c03;
+    }
+    p {
+      margin-top: 10px;
+
+      button {
+        padding: 10px;
+        border: 1px solid #ff7c01;
+        background: transparent;
+        box-shadow: 1px 1px 5px #131111;
+        color: white;
+        transition: all 0.2s;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #ff7c01;
+        color: black;
+      }
+    }
   }
   @media only screen and (max-width: 1200px) {
     height: 540px;
   }
   @media only screen and (max-width: 768px) {
     height: 420px;
+    .actor {
+      display: none;
+    }
   }
   @media only screen and (max-width: 576px) {
     height: 240px;

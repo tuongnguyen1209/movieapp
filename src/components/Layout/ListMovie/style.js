@@ -97,6 +97,7 @@ export const ListMovieItem = styled.div`
   .movie-item .card-movie-name {
     font-size: 20px;
     font-weight: 300;
+    color: rgb(245, 174, 41);
   }
   .movie-item .func {
     position: relative;
@@ -106,7 +107,8 @@ export const ListMovieItem = styled.div`
   }
   .views {
     bottom: 0;
-    color: rgb(245, 174, 41);
+    display: flex;
+    justify-content: space-between;
   }
   @media only screen and (max-width: 768px) {
     .movie-item {

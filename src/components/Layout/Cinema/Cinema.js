@@ -13,13 +13,13 @@ function Cinema(props) {
       <ListItem>
         {props.list.map((value, index) => (
           <div className="item" key={index}>
-            <Link to={`phim${value.link}`}>
+            <Link to={`phim/${value._id}`}>
               <div className="wrap">
                 <div className="img">
                   <img src={value.img} alt="" />
                 </div>
                 <div className="info">
-                  <h4 className="title">{value.name}</h4>
+                  <h4 className="title">{value.title}</h4>
                   {/* <p className="rank" v-if="item.rank!=''">
                     {value.rank}
                   </p> */}
