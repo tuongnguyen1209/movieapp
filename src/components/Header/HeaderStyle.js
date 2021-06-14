@@ -40,14 +40,24 @@ export const Togle = styled.div`
 
 export const Logo = styled.div`
   width: 20%;
-  padding: auto;
   padding: 10px;
-  img {
-    height: 30px;
-    width: 100%;
+  a {
+    text-decoration: none;
+    font-size: 30px;
+
+    color: white;
+
+    img {
+      height: 30px;
+      margin-left: 5px;
+    }
   }
   @media only screen and (max-width: 768px) {
     width: 40%;
+    padding: 15px 0 10px 15 px;
+    span {
+      display: none;
+    }
   }
 `;
 export const Nav = styled.nav`

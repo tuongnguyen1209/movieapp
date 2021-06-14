@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import movieAPI from "../../apis/movieApis";
 import movieApi from "../../apis/movieApis";
 import { UserContext } from "./../../contexts/UserContext";
+import LogoT from "./../../assets/images/logoT.png";
 import {
   Head,
   Logo,
@@ -171,7 +172,9 @@ function Header() {
       </Toggle>
       <Logo>
         <Link to="../">
-          <img src="https://247phim.com/images/logo.svg" alt="logo" />
+          <span>Phim Của</span>
+          <img src={LogoT} alt="logo" />
+          <span className="name1">ui</span>
         </Link>
       </Logo>
       <Nav className={toggleNav ? "active" : ""}>
