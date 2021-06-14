@@ -1,17 +1,12 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useLocation,
-} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import AllMovie from "./components/AllMovie";
-import Header from "./components/Header/Header";
 import MyFooter from "./components/Footer/MyFooter";
+import Header from "./components/Header/Header";
 import Home from "./components/Home";
 import Product from "./components/Product";
 import UserProvider from "./contexts/UserContext";
-import { AnimatePresence } from "framer-motion";
 
 function App() {
   const location = useLocation();
