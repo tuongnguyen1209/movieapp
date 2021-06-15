@@ -13,7 +13,16 @@ function ListMovie(props) {
             <div className="movie-item" key={index}>
               <Link to={`./../phim/${value._id}`} title={value.title}>
                 <div className="image">
-                  <img src={value.img} alt="" className="card-movie-img" />
+                  <img
+                    src={`${value.img
+                      .trim()
+                      .replace(
+                        "http://vaophim.com",
+                        "https://my-api-movie.herokuapp.com/media/img"
+                      )}`}
+                    alt=""
+                    className="card-movie-img"
+                  />
                   <div className="icon-play">
                     <i className="far fa-play-circle"></i>
                   </div>

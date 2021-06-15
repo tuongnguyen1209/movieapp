@@ -39,7 +39,15 @@ function Carosel(props) {
           <div className="carosel-item" key={index}>
             <Link to={`phim/${value._id}`}>
               <div className="banner">
-                <img src={value.img} alt="Poster" />
+                <img
+                  src={`${value.img
+                    .trim()
+                    .replace(
+                      "http://vaophim.com",
+                      " http://localhost:7300/media/img"
+                    )}`}
+                  alt="Poster"
+                />
               </div>
               <div className="banner-info">
                 <h1>{value.title} </h1>

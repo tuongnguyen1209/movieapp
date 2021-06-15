@@ -16,7 +16,15 @@ function Cinema(props) {
             <Link to={`phim/${value._id}`}>
               <div className="wrap">
                 <div className="img">
-                  <img src={value.img} alt="" />
+                  <img
+                    src={`${value.img
+                      .trim()
+                      .replace(
+                        "http://vaophim.com",
+                        "https://my-api-movie.herokuapp.com/media/img"
+                      )}`}
+                    alt=""
+                  />
                 </div>
                 <div className="info">
                   <h4 className="title">{value.title}</h4>

@@ -10,7 +10,13 @@ function Movie(props) {
       <WrapMovie>
         <div className="wrapVideo">
           <video
-            src={datas.listChaps ? datas.listChaps[0].link : ""}
+            src={
+              datas.listChaps
+                ? datas.listChaps[0].link
+                    .trim()
+                    .replace("http://", "http://localhost:7300/media/video/")
+                : ""
+            }
             controls
             autoPlay
           ></video>
@@ -85,7 +91,15 @@ function Movie(props) {
             >
               <div className="movieItem">
                 <div className="wrapImage">
-                  <img src={element.img} alt="Banner" />
+                  <img
+                    src={`${element.img
+                      .trim()
+                      .replace(
+                        "http://vaophim.com",
+                        "https://my-api-movie.herokuapp.com/media/img"
+                      )}`}
+                    alt="Banner"
+                  />
                 </div>
                 <div className="wrapInfo">
                   <h3>{element.title}</h3>
