@@ -3,6 +3,7 @@
   "short_name": "Phim Của Tui",
   "theme_color": "#000000",
   "background_color": "#000000",
+  "orientation": "portrait",
   "display": "standalone",
   "dir": "ltr",
   "scope": "/",
