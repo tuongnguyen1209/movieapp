@@ -14,7 +14,10 @@ function Movie(props) {
               datas.listChaps
                 ? datas.listChaps[0].link
                     .trim()
-                    .replace("http://", "http://localhost:7300/media/video/")
+                    .replace(
+                      "http://",
+                      "https://my-api-movie.herokuapp.com/media/video/"
+                    )
                 : ""
             }
             controls
