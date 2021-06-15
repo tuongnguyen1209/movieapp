@@ -7,7 +7,6 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home";
 import Product from "./components/Product";
 import UserProvider from "./contexts/UserContext";
-import PWAPrompt from "react-ios-pwa-prompt";
 
 function App() {
   const location = useLocation();
@@ -31,13 +30,6 @@ function App() {
           <MyFooter />
         </UserProvider>
       </AnimatePresence>
-      <PWAPrompt
-        promptOnVisit={3}
-        timesToShow={1}
-        copyClosePrompt="Close"
-        copyBody="This website has app functionality. Add it to your home screen to use it in fullscreen."
-        permanentlyHideOnDismiss={false}
-      />
     </div>
   );
 }
