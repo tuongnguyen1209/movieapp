@@ -1,8 +1,8 @@
 {
   "name": "Phim Của Tui",
   "short_name": "Phim Của Tui",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "dir": "ltr",
   "scope": "/",
