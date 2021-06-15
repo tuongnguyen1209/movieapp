@@ -44,7 +44,7 @@ function Carosel(props) {
                     .trim()
                     .replace(
                       "http://vaophim.com",
-                      " http://localhost:7300/media/img"
+                      "https://my-api-movie.herokuapp.com/media/img"
                     )}`}
                   alt="Poster"
                 />
