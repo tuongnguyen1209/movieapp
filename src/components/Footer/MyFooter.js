@@ -1,14 +1,24 @@
 import React from "react";
 import { MyFooterDefault } from "./style";
 import { Link } from "react-router-dom";
+import LogoT from "./../../assets/images/logoT.png";
+import { Logo } from "../Header/HeaderStyle";
 
 function MyFooter() {
   return (
     <MyFooterDefault>
       <div className="cate">
-        <div className="logo">
-          <img src="https://247phim.com/images/logo.svg" alt="logo" />
-        </div>
+        <Logo
+          style={{
+            width: "100%",
+          }}
+        >
+          <Link to="../">
+            <span>Phim Của</span>
+            <img src={LogoT} alt="logo" />
+            <span className="name1">ui</span>
+          </Link>
+        </Logo>
         <ul>
           <li>
             <Link to="allmovie?cate=Phim Hành Động">Phim Hành Động</Link>
@@ -31,7 +41,6 @@ function MyFooter() {
       <div className="nguon">
         Website lấy phim từ nguồn
         <a href="http://vaophim.com/">Vaophim.com</a>
-        và lấy hình ảnh logo từ <a href="https://247phim.com/">247phim.com</a>
       </div>
       <div className="author">
         <ul>

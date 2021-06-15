@@ -297,7 +297,7 @@ function Header() {
                         setShowLogin(false);
                       }}
                     >
-                      Signin
+                      Register
                     </span>
                   </li>
                 </>

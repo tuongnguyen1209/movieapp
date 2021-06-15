@@ -43,7 +43,9 @@ function Movie(props) {
               Diễn Viên:{" "}
               {datas.listactors &&
                 datas.listactors.map((element, index) => (
-                  <Link to="">{element.name},</Link>
+                  <Link to="" key={index}>
+                    {element.name},
+                  </Link>
                 ))}
             </p>
             <p>
