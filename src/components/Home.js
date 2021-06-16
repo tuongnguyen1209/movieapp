@@ -1,3 +1,4 @@
+import PWAPrompt from "react-ios-pwa-prompt";
 import React, { useEffect, useState } from "react";
 import movieAPI from "../apis/movieApis";
 import Carosel from "./Layout/Carosel/Carosel";
@@ -5,7 +6,6 @@ import Cinema from "./Layout/Cinema/Cinema";
 import ListMovie from "./Layout/ListMovie/ListMovie";
 import { motion } from "framer-motion";
 import { fadeAnimate, transion } from "../animation/ainmate";
-import PWAPrompt from "react-ios-pwa-prompt";
 
 function Home(props) {
   const [listPhimHot, SetListPhimHot] = useState([]);
@@ -68,13 +68,7 @@ function Home(props) {
       <ListMovie title="Phim Lẻ Mới Cập Nhật" listItem={listPhimLe} />
       <ListMovie title="Phim Hoạt Hình Mới Cập Nhập" listItem={listPhimBo} />
 
-      <PWAPrompt
-        promptOnVisit={3}
-        timesToShow={1}
-        copyClosePrompt="Close"
-        copyBody="This website has app functionality. Add it to your home screen to use it in fullscreen."
-        permanentlyHideOnDismiss={false}
-      />
+      
     </motion.div>
   );
 }
